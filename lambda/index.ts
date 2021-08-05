@@ -437,11 +437,11 @@ function makePublicKey(event: Event): Promise<string> {
     }
 
     const privateKey = forge.pki.privateKeyFromPem(event.KeyMaterial);
-    const forgePublicKey = forge.pki.rsa.setPublicKey(
+    const publicKey = forge.pki.rsa.setPublicKey(
       privateKey.n,
       privateKey.e
     );
-    const publicKey = forge.ssh.publicKeyToOpenSSH(forgePublicKey) as string;
+//    const publicKey = forge.ssh.publicKeyToOpenSSH(forgePublicKey) as string;
     resolve(publicKey);
   });
 }
